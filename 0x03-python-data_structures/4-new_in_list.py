@@ -9,7 +9,5 @@ def new_in_list(my_list, idx, element):
         elif idx >= len(new_list) - 1:
             return new_list
         else:
-            for i in range(0, len(new_list)):
-                if i == idx:
-                    new_list[i] = element
-                    return new_list
+            new_list[idx] = element
+            return new_list
