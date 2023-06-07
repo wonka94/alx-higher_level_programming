@@ -1,3 +1,10 @@
+#!/usr/bin/python3
+"""
+This is the ``2-matrix_divided`` module.
+The 2-matrix_divided module provides one function. matrix_divided().
+"""
+
+
 def matrix_divided(matrix, div):
     """
         A function that divides all elements of a matrix.
