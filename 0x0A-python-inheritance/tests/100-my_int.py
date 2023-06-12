@@ -4,15 +4,11 @@
 
 class MyInt(int):
     """Inherits from int base class"""
-    def __init__(self, value):
-        """Initialize `value` value"""
-        self.value = value
+    def __eq__(self, num):
+        """Invert the == operator"""
+        return super().__ne__(num)
 
-    def __ne__(self, x):
-        """not equal to comparison"""
-        if self.value is x:
-            return True
+    def __ne__(self, num):
+        """Invert the != operator"""
+        return super().__eq__(num)
 
-    def __eq__(self, x):
-        """equal to comparison"""
-        return not self.__ne__(x)
