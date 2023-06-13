@@ -23,7 +23,10 @@ class Student:
         """
         desc = {}
 
-        keys = [key for key in self.__dict__ if attrs is None or key in attrs]
+        if attrs is not None:
+            keys = [key for key in self.__dict__ if key in attrs]
+        else:
+            keys = [key for key in self.__dict__]
 
         for key in self.__dict__:
             value = getattr(self, key)
