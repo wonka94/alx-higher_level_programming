@@ -28,7 +28,7 @@ class Student:
         else:
             keys = [key for key in self.__dict__]
 
-        for key in self.__dict__:
+        for key in keys:
             value = getattr(self, key)
             if type(value) in [list, dict, str, int, bool]:
                 desc[key] = value
