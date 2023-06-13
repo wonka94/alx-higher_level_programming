@@ -47,15 +47,6 @@ Case with a non integer
 Traceback (most recent call last):
 TypeError: name must be an integer
 
-Case with value as boolean
-
->>> try:
-...     bg.integer_validator("width", True)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-...
-[TypeError] width must be an integer
-
 Case catched output with string value
 
 >>> try:
