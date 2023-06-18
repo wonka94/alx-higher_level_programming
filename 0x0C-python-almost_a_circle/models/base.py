@@ -94,6 +94,39 @@ class Base:
             dummy = cls(1)
 
     @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Writes a list of objects to a CSV file.
+
+        Args:
+            cls: The class of the objects.
+            list_objs: A list of objects to be serialized.
+
+        Raises:
+            TypeError: If list_objs is not a list or contains
+            objects of different classes.
+        """
+        filename = cls.__name__ + ".csv"
+
+        if not list_objs:
+            with open(filename, "w") as fi:
+                cfile.write("[]")
+        else:
+            if not all(isinstance(obj, cls) for obj in list_objs):
+                raise TypeError("All objects must be of class {}".format(cls.__name__))
+
+            with open(filename, "w") as fi:
+                writer = csv.writer(fi)
+                for obj in list_objs:
+                    if cls.__name__ == "Rectangle":
+                        attrs = [obj.id, obj.width, obj.height, obj.x, obj.y]
+                    elif cls.__name__ == "Square":
+                        attrs = [obj.id, obj.width, obj.x, obj.y]
+                    else:
+                        continue
+                    writer.writerow(attrs)
+
+    @classmethod
     def load_from_file_csv(cls):
         """
         This method reads a CSV file with the name of the class and creates
@@ -108,10 +141,10 @@ class Base:
         with open(filename, "r") as f:
             if cls.__name__ == "Rectangle":
                 reader = csv.DictReader(
-                    f, fields=['id', 'width', 'height', 'x', 'y'])
+                    f, fieldnames=['id', 'width', 'height', 'x', 'y'])
             elif cls.__name__ == "Square":
                 reader = csv.DictReader(
-                    f, fields=['id', 'size', 'x', 'y'])
+                    f, fieldnames=['id', 'size', 'x', 'y'])
 
             instances = []
             for instance in reader:
