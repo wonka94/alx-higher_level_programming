@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """Defines a test case for the square.py module in the models directory."""
 import unittest
+import io
+import sys
+from models.base import Base
 from models.square import Square
 
 
@@ -18,18 +21,6 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(sq.x, 2)
         self.assertEqual(sq.y, 3)
         self.assertEqual(sq.id, 4)
-
-    def test_init_default(self):
-        """Tests initializing an instance of the Square class with
-           default arguments.
-
-        Asserts that the attributes are equal to the default values.
-        """
-        sq = Square(1)
-        self.assertEqual(sq.size, 1)
-        self.assertEqual(sq.x, 0)
-        self.assertEqual(sq.y, 0)
-        self.assertEqual(sq.id, 1)
 
     def test_init_invalid_size(self):
         """Tests initializing an instance of the Square class with

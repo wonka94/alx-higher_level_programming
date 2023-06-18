@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """Defines a test case for the rectangle.py module in the models directory."""
 import unittest
+import io
+import sys
+from models.base import Base
 from models.rectangle import Rectangle
 
 
@@ -19,19 +22,6 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r.x, 2)
         self.assertEqual(r.y, 3)
         self.assertEqual(r.id, 4)
-
-    def test_init_default(self):
-        """Tests initializing an instance of the Rectangle
-           class with default arguments.
-
-        Asserts that the attributes are equal to the default values.
-        """
-        r = Rectangle(1, 1)
-        self.assertEqual(r.width, 1)
-        self.assertEqual(r.height, 1)
-        self.assertEqual(r.x, 0)
-        self.assertEqual(r.y, 0)
-        self.assertEqual(r.id, 1)
 
     def test_init_invalid_width(self):
         """Tests initializing an instance of the

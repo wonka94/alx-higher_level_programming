@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Defines a test case for the base.py module in the models directory."""
+import os
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
 from models.square import Square
 import json
 
