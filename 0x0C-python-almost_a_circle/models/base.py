@@ -77,6 +77,19 @@ class Base:
         return json.loads(json_string)
 
     @classmethod
+    def load_from_file(cls):
+        """
+            list: A list of instances of the class.
+        """
+        filename = cls.__name__ + ".json"
+        if not os.path.exists(filename):
+            return []
+        with open(filename, "r") as f:
+            data = cls.from_json_string(f.read())
+            instances = [cls.create(**d) for d in data]
+        return instances
+
+    @classmethod
     def create(cls, **dictionary):
         """
         Returns an instance with all attributes already set.
