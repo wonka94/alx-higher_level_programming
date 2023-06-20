@@ -113,7 +113,8 @@ class Base:
                 cfile.write("[]")
         else:
             if not all(isinstance(obj, cls) for obj in list_objs):
-                raise TypeError("All objects must be of class {}".format(cls.__name__))
+                raise TypeError("All objects must be of class {}".
+                                format(cls.__name__))
 
             with open(filename, "w") as fi:
                 writer = csv.writer(fi)
