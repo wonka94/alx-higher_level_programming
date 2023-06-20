@@ -92,6 +92,8 @@ class Base:
             dummy = cls(1, 1)
         elif cls.__name__ == "Square":
             dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
