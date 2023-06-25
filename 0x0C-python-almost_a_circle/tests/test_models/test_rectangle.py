@@ -23,6 +23,57 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r.y, 3)
         self.assertEqual(r.id, 4)
 
+    def test_valid_width_height(self):
+        """Tests initializing an instance of the Rectangle
+           class with valid arguments.
+
+        Asserts that the attributes are equal to the given arguments.
+        """
+        r = Rectangle(5, 6)
+        self.assertEqual(r.width, 5)
+        self.assertEqual(r.height, 6)
+
+    def test_valid_width_height_x(self):
+        """Tests initializing an instance of the Rectangle
+           class with valid arguments.
+
+        Asserts that the attributes are equal to the given arguments.
+        """
+        r = Rectangle(5, 6, 2)
+        self.assertEqual(r.width, 5)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 2)
+
+    def test_valid_width_height_x_y(self):
+        """Tests initializing an instance of the Rectangle
+           class with valid arguments.
+
+        Asserts that the attributes are equal to the given arguments.
+        """
+        r = Rectangle(5, 6, 2, 3)
+        self.assertEqual(r.width, 5)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 3)
+
+    def test_zero_width(self):
+        """Tests initializing an instance of the Rectangle
+           class with valid arguments.
+
+        Asserts that the attributes are equal to the given arguments.
+        """
+        with self.assertRaises(ValueError):
+            r = Rectangle(0, 6)
+
+    def test_zero_height(self):
+        """Tests initializing an instance of the Rectangle
+           class with valid arguments.
+
+        Asserts that the attributes are equal to the given arguments.
+        """
+        with self.assertRaises(ValueError):
+            r = Rectangle(5, 0)
+
     def test_init_invalid_width(self):
         """Tests initializing an instance of the
            Rectangle class with an invalid width argument.
