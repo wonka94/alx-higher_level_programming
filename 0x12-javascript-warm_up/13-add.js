@@ -1,2 +1,3 @@
 #!/usr/bin/node
-export const add = (a, b) => a + b;
+const add = (a, b) => a + b;
+exports.add = add;
